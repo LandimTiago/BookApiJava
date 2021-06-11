@@ -8,10 +8,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "TB_BOOKS")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
 public class Book implements Serializable {
 
     private static final long SerialVersionUID = 1L;
@@ -20,28 +26,10 @@ public class Book implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotNull
+    private long userId;
     private String title;
-    @NotNull
     private String autor;
-    @NotNull
     private BigDecimal pages;
-
-    public long getId() {
-        return id;
-    }
-
-    public String getAutor() {
-        return autor;
-    }
-
-    public BigDecimal getPages() {
-        return pages;
-    }
-
-    public String getTitle() {
-        return title;
-    }
 
     public static long getSerialversionuid() {
         return SerialVersionUID;
